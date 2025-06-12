@@ -1,11 +1,11 @@
 # ---------- Build stage ----------
-FROM gradle:8.7-jdk21 AS build
+FROM gradle:8.7-jdk17 AS build
 WORKDIR /app
 COPY . .
 RUN gradle bootJar --no-daemon -x test
 
 # ---------- Runtime stage ----------
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 ENV PORT=8080
