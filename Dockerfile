@@ -14,6 +14,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /app/build/libs/*.jar app.jar
+
+ENV JAVA_TOOL_OPTIONS="-Djava.library.path=/usr/lib/x86_64-linux-gnu/jni:/usr/lib/x86_64-linux-gnu"
+
 ENV PORT=8080
 EXPOSE 8080
 CMD sh -c "java -jar /app/app.jar --server.port=$PORT"
