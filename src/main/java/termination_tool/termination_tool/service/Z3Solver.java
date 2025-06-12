@@ -2,7 +2,6 @@ package termination_tool.termination_tool.service;
 
 import org.sosy_lab.common.configuration.InvalidConfigurationException;
 import org.sosy_lab.java_smt.api.NumeralFormula.IntegerFormula;
-import scala.annotation.meta.param;
 import termination_tool.termination_tool.model.RewriteRule;
 import termination_tool.termination_tool.model.RewritingSystem;
 import org.sosy_lab.common.ShutdownManager;

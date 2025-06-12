@@ -10,12 +10,13 @@ WORKDIR /app
 # dependencies----------------
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        z3 libz3-4 libz3-jni && \
+        z3 libz3-4 libz3-java && \
+    ln -s /usr/lib/jni/libz3java.so /usr/lib/libz3java.so && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /app/build/libs/*.jar app.jar
 
-ENV JAVA_TOOL_OPTIONS="-Djava.library.path=/usr/lib/x86_64-linux-gnu/jni:/usr/lib/x86_64-linux-gnu"
+ENV JAVA_TOOL_OPTIONS="-Djava.library.path=/usr/lib:/usr/lib/jni"
 
 ENV PORT=8080
 EXPOSE 8080
