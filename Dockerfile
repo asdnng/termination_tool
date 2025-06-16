@@ -12,4 +12,4 @@ RUN ./gradlew bootJar --no-daemon
 ENV JAVA_TOOL_OPTIONS="-Djava.io.tmpdir=/tmp"
 
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app/build/libs/termination-tool-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/app/build/libs/termination_tool-0.0.1-SNAPSHOT.jar"]
